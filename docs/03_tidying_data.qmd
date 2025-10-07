@@ -1,0 +1,634 @@
+---
+title: "Joining and Tidying<br /><br /><br />"
+author: "Data Health Fellowship"
+format:
+  revealjs: 
+    theme: beige
+title-slide-attributes:
+    data-background-image: "slide_images/usc.jpg"
+    data-background-size: contain
+    data-background-opacity: "number"
+---
+
+# Joins
+
+## Let's start out with two data frames: x and y
+
+```{r dfs}
+#| echo: TRUE
+
+x <- data.frame(id=c(1,2,3), x=c("x1", "x2", "x3"))
+
+x
+```
+
+:::{.fragment}
+```{r}
+#| echo: TRUE
+y <- data.frame(id=c(1,2,4), y=c("y1", "y2", "y4"))
+
+y
+```
+:::
+
+## Two data frames
+
+```{r, echo=F, fig.retina=TRUE, out.width=800}
+knitr::include_graphics("slide_images/original-dfs.png")
+```
+
+
+## left_join()
+
+
+```{r left, warning=F, message=F}
+#| echo: TRUE
+library(dplyr)
+
+left_join(x, y)
+```
+
+
+## left_join() illustrated
+
+![](https://ucd-cws.github.io/CABW2020_R_training/images/left-join.gif)
+
+
+## Two data frames: x and y but with different column names
+
+```{r dfs_again}
+#| echo: TRUE
+x <- data.frame(id=c(1,2,3), x=c("x1", "x2", "x3"))
+
+x
+```
+
+::: {.fragment}
+```{r}
+#| echo: TRUE
+y <- data.frame(new_id=c(1,2,4), y=c("y1", "y2", "y4"))
+
+y
+```
+:::
+
+
+:::{.fragment}
+```{r left2}
+#| echo: TRUE
+left_join(x, y, by=c("id"="new_id"))
+```
+:::
+
+
+## Watch out for repeated data
+
+```{r left3}
+#| echo: FALSE
+x <- data.frame(id=c(1,2,3), 
+                x=c("x1", "x2", "x3"))
+
+x
+```
+
+```{r left4}
+#| echo: FALSE
+y <- data.frame(id=c(1,2,4,2), 
+                y=c("y1", "y2", "y4", "y5"))
+
+y
+```
+
+:::{.fragment}
+```{r}
+#| echo: TRUE
+left_join(x, y)
+```
+:::
+
+
+## Extra rows illustrated
+
+![](https://github.com/gadenbuie/tidyexplain/raw/main/images/left-join-extra.gif)
+
+
+## right_join()
+
+
+![](https://github.com/gadenbuie/tidyexplain/raw/main/images/right-join.gif)
+
+## full_join()
+
+![](https://github.com/gadenbuie/tidyexplain/raw/main/images/full-join.gif)
+
+## inner_join()
+
+![](https://github.com/gadenbuie/tidyexplain/raw/main/images/inner-join.gif)
+
+## anti_join()
+
+![](https://github.com/gadenbuie/tidyexplain/raw/main/images/anti-join.gif)
+
+## stringr package
+
+![](slide_images/stringr.png)
+
+
+## stringr functions
+
+Key `stringr` functions:
+
+In this section, we will learn the following `stringr` functions:
+
+:::{.incremental}
+* `str_to_upper()` `str_to_lower()` `str_to_title()`
+* `str_trim()` `str_squish()`
+* `str_c()`
+* `str_detect()`
+* `str_subset()`
+* `str_sub()`
+:::
+
+## stringr in action
+
+```{r str_to}
+#| echo: TRUE
+
+library(stringr)
+
+test_text <- "tHiS iS A rANsOM noTE!"
+```
+
+:::{.fragment}
+```{r}
+#| echo: TRUE
+str_to_upper(test_text)
+```
+:::
+
+:::{.fragment}
+```{r}
+#| echo: TRUE
+str_to_lower(test_text)
+```
+:::
+
+:::{.fragment}
+```{r}
+#| echo: TRUE
+str_to_title(test_text)
+```
+:::
+
+## Trimming strings
+
+```{r trim}
+#| echo: TRUE
+test_text <- "  trim both   "
+
+test_text 
+```
+
+:::{.fragment}
+```{r}
+#| echo: TRUE
+str_trim(test_text, side="both")
+```
+:::
+
+:::{.fragment}
+```{r}
+#| echo: TRUE
+str_trim(test_text, side="left")
+```
+:::
+
+:::{.fragment}
+```{r}
+#| echo: TRUE
+str_trim(test_text, side="right")
+```
+:::
+
+:::{.fragment}
+```{r}
+#| echo: TRUE
+messy_text <- "  sometimes  you get   this "
+```
+:::
+
+:::{.fragment}
+```{r}
+#| echo: TRUE
+str_squish(messy_text)
+```
+:::
+
+## Combining strings
+
+```{r str_c}
+#| echo: TRUE
+text_a <- "one"
+
+text_b <- "two"
+
+text_a
+
+text_b
+```
+
+:::{.fragment}
+```{r}
+#| echo: TRUE
+str_c(text_a, text_b)
+```
+:::
+
+:::{.fragment}
+```{r}
+#| echo: TRUE
+str_c(text_a, text_b, sep="-")
+```
+:::
+
+:::{.fragment}
+```{r}
+#| echo: TRUE
+str_c(text_a, text_b, sep=" and a ")
+```
+:::
+
+:::{.fragment}
+```{r}
+#| echo: TRUE
+str_c(text_a, " and a ", text_b)
+```
+:::
+
+## Extracting strings
+
+```{r extract}
+#| echo: TRUE
+test_text <- "Hello world"
+
+test_text 
+```
+
+:::{.fragment}
+```{r}
+#| echo: TRUE
+str_sub(test_text, start = 6)
+```
+:::
+
+:::{.fragment}
+```{r}
+#| echo: TRUE
+str_sub(test_text, end = 5) <- "Howdy"
+
+test_text
+```
+:::
+
+
+:::{.fragment}
+```{r}
+#| echo: TRUE
+cn <- "Kemp County, Georgia"
+
+cn 
+
+str_replace(cn, " County, .*", "")
+```
+:::
+
+## More stringr functions
+More functions in [stringr](https://evoldyn.gitlab.io/evomics-2018/ref-sheets/R_strings.pdf) and more info on regular expressions [here](https://raw.githubusercontent.com/rstudio/cheatsheets/main/regex.pdf).
+
+## parse_number()
+
+(from the readr package)
+
+```{r parse}
+#| echo: TRUE
+
+library(readr)
+messy_numbers <- c("$5.00", "9,343,200", "6.0%")
+
+messy_numbers
+```
+
+:::{.fragment}
+```{r}
+#| echo: TRUE
+parse_number(messy_numbers)
+```
+:::
+
+
+
+## parse_number()
+
+![](slide_images/parse_number.png)
+
+
+
+# Your turn
+
+Run this to go through the exercises
+
+```{r}
+#| eval: FALSE
+#| echo: TRUE
+https://r-journalism.github.io/chjr/tidying/joining.html
+```
+
+Get as far as you can in the time we have! 
+
+## Tidy data {background-color="white" background-image="slide_images/tidydata_1.jpg" background-size="100%" }
+
+## Messy data {background-color="white" background-image="slide_images/tidydata_2.jpg" background-size="100%" }
+
+## _ {background-color="white" background-image="slide_images/tidydata_3.jpg" background-size="100%" }
+
+## One tool, similar data structures {background-color="white" background-image="slide_images/tidydata_4.jpg" background-size="100%" }
+
+## Multiple tools, more efficient {background-color="white" background-image="slide_images/tidydata_5.jpg" background-size="100%" }
+
+## Success! {background-color="white" background-image="slide_images/tidydata_6.jpg" background-size="100%" }
+
+## You! Happy! {background-color="white" background-image="slide_images/tidydata_7.jpg" background-size="100%" }
+
+## Sample data
+
+(You don't have to type this out)
+
+2 rows x 3 columns
+
+```{r dfs2}
+#| echo: TRUE
+df <- data.frame(id=c(1,2), x=c("a", "b"),
+                 y=c("c", "d"), z=c("e", "f"))
+
+df
+```
+
+## wide vs long
+
+![](slide_images/original-dfs-tidy.png)
+
+## pivot_longer() illustrated
+
+![](https://github.com/gadenbuie/tidyexplain/raw/main/images/tidyr-pivoting.gif)
+
+## pivot_longer()
+
+```{r left9}
+#| echo: TRUE
+
+library(tidyr)
+
+df |> 
+  pivot_longer(cols=x:z,
+               names_to="key",
+               values_to="val")
+```
+
+## pivot_longer()
+
+```{r left20}
+#| echo: TRUE
+df |> 
+  pivot_longer(cols=2:4,
+               names_to="key",
+               values_to="val")
+```
+
+
+```{r left30}
+df <- data.frame(state=c("TX", "NY", "FL"),
+                 ducks=c(23, 39, 47),
+                 fish=c(6,30,20),
+                 birds=c(99,3,64))
+```
+
+## pivot_longer() again
+
+```{r}
+#| echo: TRUE
+df
+```
+
+:::{.fragment}
+```{r}
+#| echo: TRUE
+df |> 
+  pivot_longer(cols=ducks:birds,
+               names_to="animals",
+               values_to="total")
+```
+:::
+
+## pivot_longer() again
+
+```{r}
+#| echo: TRUE
+df
+```
+
+:::{.fragment}
+```{r}
+#| echo: TRUE
+df |> 
+  pivot_longer(cols=2:4,
+               names_to="animals",
+               values_to="totals")
+```
+:::
+
+## pivot for math
+```{r math1}
+df <- data.frame(state=c("TX", "NY", "FL"),
+                 ducks=c(23, 39, 47),
+                 fish=c(6,30,20),
+                 birds=c(99,3,64))
+```
+
+```{r}
+#| echo: TRUE
+df
+```
+
+:::{.fragment}
+```{r}
+#| echo: TRUE
+df |> 
+  pivot_longer(cols=ducks:birds,
+               names_to="animals",
+               values_to="total") |> 
+  group_by(state) |> 
+  mutate(percent=
+           round(total/sum(total)*100,1))
+```
+:::
+
+## pivot_wider()
+
+```{r wider}
+df_long <- df |> 
+  pivot_longer(cols=ducks:birds,
+               names_to="animals",
+               values_to="total") |> 
+  group_by(state) |> 
+  mutate(percent=
+           round(total/sum(total)*100,1))
+```
+
+```{r}
+#| echo: TRUE
+df_long
+```
+
+## pivot_wider()
+
+:::{.fragment}
+```{r}
+#| echo: TRUE
+df_long |> 
+  pivot_wider(names_from="animals", 
+              values_from="percent")
+```
+:::
+
+:::{.fragment}
+```{r}
+#| echo: TRUE
+df_long |> 
+  select(-total) |> 
+  pivot_wider(names_from="animals", 
+              values_from="percent") |> 
+  mutate(birds_fish_diff=
+           birds-fish)
+```
+:::
+
+## pivot_wider() more columns
+
+```{r widera}
+df_long <- df |> 
+  pivot_longer(cols=ducks:birds,
+               names_to="animals",
+               values_to="total") |> 
+  group_by(state) |> 
+  mutate(percent=
+           round(total/sum(total)*100,1))
+```
+
+```{r}
+#| echo: TRUE
+
+df_long
+```
+
+:::{.fragment}
+```{r}
+#| echo: TRUE
+df_long |> 
+  pivot_wider(names_from="animals", 
+              values_from=c("total", "percent")) 
+
+```
+:::
+
+
+## Lubridate for dates {background-color="white" background-image="slide_images/lubridate" background-size="100%" }
+
+
+
+
+```{r dates2}
+#| echo: TRUE
+#| 
+library(lubridate)
+
+df <- data.frame(First=c("Charlie", "Lucy", "Peppermint"),
+                   Last=c("Brown", "van Pelt", "Patty"),
+                   birthday=c("10-31-06", "2/4/2007", "June 1, 2005"))
+
+df
+```
+
+:::{.fragment}
+```{r}
+#| echo: TRUE
+df |> 
+  mutate(birthday_clean=mdy(birthday))
+```
+:::
+
+
+## Reading dates
+
+| **Order of elements in date-time**     | **Parse function** |
+|----------------------------------------|----------------|
+| year, month, day                       | `ymd()`          |
+| year, day, month                       | `ydm()`          |
+| month, day, year                       | `mdy()`          |
+| day, month, year                       | `dmy()`          |
+| hour, minute                           | `hm()`           |
+| hour, minute, second                   | `hms()`          |
+| year, month, day, hour, minute, second | `ymd_hms()`      |
+
+## Accessing date parts
+
+| **Date component** | **Function**  |
+|----------------|-----------|
+| Year           | `year()`    |
+| Month          | `month()`   |
+| Week           | `week()`    |
+| Day of year    | `yday()`    |
+| Day of month   | `mday()`    |
+| Day of week    | `wday()`    |
+| Hour           | `hour()`    |
+| Minute         | `minute()`  |
+| Second         | `ymd_hms()` |
+| Time zone      | `ymd_hms()` |
+
+## Lubridate in action
+
+```{r dates3}
+#| echo: TRUE
+df
+```
+
+:::{.fragment}
+```{r}
+#| echo: TRUE
+df |> 
+  mutate(birthday_clean=mdy(birthday)) |> 
+  mutate(month=month(birthday_clean)) |> 
+  mutate(year=year(birthday_clean)) |> 
+  mutate(week=week(birthday_clean))
+```
+:::
+
+
+## Recognizing dates
+
+![](slide_images/lubridate_ymd.png)
+
+
+# Your turn
+
+Run this to go through the exercises
+
+```{r}
+#| eval: FALSE
+#| echo: TRUE
+https://r-journalism.github.io/chjr/tidying/math_pivots.html
+```
+
+Get as far as you can!
+
+
+

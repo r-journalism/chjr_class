@@ -1,0 +1,220 @@
+---
+title: "intro"
+format: html
+editor: visual
+---
+
+```{r}
+sample_df <- data.frame(id=c(1001,1002,1003,1004),
+                        name=c("Steve", "Pam", "Jim", "Dwight"),
+                        age=c(26, 65, 15, 7),
+                        race=c("White", "Black", "White", "Hispanic"))
+
+sample_df$race <- factor(sample_df$race)
+sample_df$id <- factor(sample_df$id)
+sample_df$name <- as.character(sample_df$name)
+
+sample_df
+
+```
+
+```{r}
+sample_df$race
+
+
+``` 
+
+```{r}
+
+as.character(sample_df$race)
+
+
+```  
+
+```{r}
+sample_df$name
+
+```  
+
+```{r}
+as.factor(sample_df$race)
+
+```  
+
+```{r}
+sample_df$race
+
+```  
+
+```{r}
+as.character(sample_df$race)
+
+```  
+
+```{r}
+sample_df$name
+
+
+```  
+
+```{r}
+as.factor(sample_df$race)
+
+
+```  
+
+```{r}
+sample_df$id
+
+```  
+
+```{r}
+as.numeric(sample_df$id)
+
+```  
+
+```{r}
+sample_df$id
+
+```  
+
+```{r}
+as.numeric(sample_df$id)
+
+```  
+
+```{r}
+as.numeric(as.character(sample_df$id))
+
+```  
+
+```{r}
+
+
+```  
+
+```{r}
+vec1 <- c(1,4,6,8,10)
+vec1
+
+```  
+
+```{r}
+vec1[4]
+
+```  
+
+```{r}
+
+patientID <- c(111, 208, 113, 408)
+age <- c(25, 34, 28, 52)
+sex <- c(1,2,1,1)
+diabetes <- c("Type1", "Type2", "Type1", "Type1")
+status <- c(1,2,3,1)
+
+patientdata <- data.frame(patientID, age, sex, diabetes, status)
+
+```  
+
+```{r}
+patientdata[2,4]
+
+```  
+
+```{r}
+patientdata[,4]
+
+```  
+
+```{r}
+patientdata[,3:4]
+
+```  
+
+```{r}
+patientdata[c("diabetes", "status")]
+
+
+```  
+
+```{r}
+patientdata$age
+
+```  
+
+```{r}
+mean(patientdata$age)
+
+```  
+
+```{r}
+library(readr)
+
+```  
+
+```{r}
+
+df <- read_csv("https://www.andrewbatran.com/data/Admissions_to_DMHAS_Addiction_Treatment_by_Town__Year__and_Month.csv")
+
+df
+
+```  
+
+```{r}
+write_csv(df_csv, "data/transformed_data.csv")
+
+```  
+
+```{r}
+write_csv(df_csv, "data/transformed_data.csv", na="")
+
+```  
+
+```{r}
+library(readxl)
+
+```  
+
+```{r}
+df_xl <- read_excel("data/StatisticsSummary.xls", sheet=1)
+
+```  
+
+```{r}
+View(df_xl)
+
+df_xl <- read_excel("data/StatisticsSummary.xls", sheet=1, skip=2)
+
+```  
+
+```{r}
+colnames(df_xl)
+
+```  
+
+```{r}
+head(df_xl$Other Cases)
+
+```  
+
+```{r}
+head(df_xl$`Other Cases`)
+
+```  
+
+```{r}
+library(janitor)
+
+df_xl <- clean_names(df_xl)
+
+colnames(df_xl)
+
+```  
+
+```{r}
+
+library(dplyr)
+
+glimpse(df_xl)
+
+```

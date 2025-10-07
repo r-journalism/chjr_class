@@ -1,0 +1,409 @@
+---
+title: "joins and tidying"
+format: html
+editor: visual
+---
+
+
+```{r}
+x <- data.frame(id=c(1,2,3), x=c("x1", "x2", "x3"))
+
+x
+```
+
+```{r}
+y <- data.frame(id=c(1,2,4), y=c("y1", "y2", "y4"))
+
+y
+```  
+
+```{r}
+library(dplyr)
+
+left_join(x, y)
+
+```  
+
+```{r}
+
+x <- data.frame(id=c(1,2,3), x=c("x1", "x2", "x3"))
+
+x
+
+``` 
+
+```{r}
+
+y <- data.frame(new_id=c(1,2,4), y=c("y1", "y2", "y4"))
+
+y
+
+```  
+
+```{r}
+
+left_join(x, y, by=c("id"="new_id"))
+
+```  
+
+```{r}
+
+x <- data.frame(id=c(1,2,3),
+                x=c("x1", "x2", "x3"))
+
+x
+
+y <- data.frame(id=c(1,2,4,2),
+                y=c("y1", "y2", "y4", "y5"))
+
+y
+
+```  
+
+```{r}
+
+left_join(x, y)
+
+```  
+
+```{r}
+
+
+library(stringr)
+
+test_text <- "tHiS iS A rANsOM noTE!"
+
+```  
+
+```{r}
+
+str_to_upper(test_text)
+
+
+```  
+
+```{r}
+
+str_to_lower(test_text)
+
+
+```  
+
+```{r}
+
+str_to_title(test_text)
+
+
+```  
+
+```{r}
+
+test_text <- "  trim both   "
+
+test_text
+
+```  
+
+```{r}
+
+str_trim(test_text, side="both")
+
+```  
+
+```{r}
+
+str_trim(test_text, side="left")
+
+```  
+
+```{r}
+
+str_trim(test_text, side="right")
+
+
+```  
+
+```{r}
+
+messy_text <- "  sometimes  you get   this "
+
+
+```  
+
+```{r}
+str_squish(messy_text)
+
+```  
+
+```{r}
+
+text_a <- "one"
+
+text_b <- "two"
+
+text_a
+
+text_b
+
+```  
+
+```{r}
+
+str_c(text_a, text_b)
+
+```  
+
+```{r}
+
+str_c(text_a, text_b, sep="-")
+
+```  
+
+```{r}
+
+str_c(text_a, text_b, sep=" and a ")
+
+
+```  
+
+```{r}
+str_c(text_a, " and a ", text_b)
+
+
+```  
+
+```{r}
+
+test_text <- "Hello world"
+
+test_text
+
+```  
+
+```{r}
+
+str_sub(test_text, start = 6)
+
+```  
+
+```{r}
+
+
+str_sub(test_text, end = 5) <- "Howdy"
+
+test_text
+
+```  
+
+```{r}
+
+cn <- "Kemp County, Georgia"
+
+cn
+
+str_replace(cn, " County, .*", "")
+
+```  
+
+```{r}
+
+
+library(readr)
+messy_numbers <- c("$5.00", "9,343,200", "6.0%")
+
+messy_numbers
+
+```  
+
+```{r}
+parse_number(messy_numbers)
+
+```  
+
+```{r}
+
+df <- data.frame(id=c(1,2), x=c("a", "b"),
+                 y=c("c", "d"), z=c("e", "f"))
+
+df
+
+```  
+
+```{r}
+
+
+library(tidyr)
+
+df |>
+  pivot_longer(cols=x:z,
+               names_to="key",
+               values_to="val")
+
+```  
+
+```{r}
+
+df |>
+  pivot_longer(cols=2:4,
+               names_to="key",
+               values_to="val")
+
+
+```  
+
+```{r}
+
+df <- data.frame(state=c("TX", "NY", "FL"),
+                 ducks=c(23, 39, 47),
+                 fish=c(6,30,20),
+                 birds=c(99,3,64))
+
+```  
+
+```{r}
+
+df
+
+```  
+
+```{r}
+
+df |>
+  pivot_longer(cols=ducks:birds,
+               names_to="animals",
+               values_to="total")
+
+```  
+
+```{r}
+
+df
+
+```  
+
+```{r}
+
+df |>
+  pivot_longer(cols=2:4,
+               names_to="animals",
+               values_to="totals")
+
+```  
+
+```{r}
+
+df <- data.frame(state=c("TX", "NY", "FL"),
+                 ducks=c(23, 39, 47),
+                 fish=c(6,30,20),
+                 birds=c(99,3,64))
+
+```  
+
+```{r}
+
+df
+
+```  
+
+```{r}
+
+df |>
+  pivot_longer(cols=ducks:birds,
+               names_to="animals",
+               values_to="total") |>
+  group_by(state) |>
+  mutate(percent=
+           round(total/sum(total)*100,1))
+
+```  
+
+```{r}
+
+df_long <- df |>
+  pivot_longer(cols=ducks:birds,
+               names_to="animals",
+               values_to="total") |>
+  group_by(state) |>
+  mutate(percent=
+           round(total/sum(total)*100,1))
+
+```  
+
+```{r}
+
+df_long
+
+```  
+
+```{r}
+
+df_long |>
+  pivot_wider(names_from="animals",
+              values_from="percent")
+
+```  
+
+```{r}
+
+df_long |>
+  select(-total) |>
+  pivot_wider(names_from="animals",
+              values_from="percent") |>
+  mutate(birds_fish_diff=
+           birds-fish)
+
+```  
+
+```{r}
+
+df_long <- df |>
+  pivot_longer(cols=ducks:birds,
+               names_to="animals",
+               values_to="total") |>
+  group_by(state) |>
+  mutate(percent=
+           round(total/sum(total)*100,1))
+
+```  
+
+```{r}
+
+df_long
+
+```  
+
+```{r}
+df_long |>
+  pivot_wider(names_from="animals",
+              values_from=c("total", "percent"))
+
+```  
+
+```{r}
+
+library(lubridate)
+
+df <- data.frame(First=c("Charlie", "Lucy", "Peppermint"),
+                 Last=c("Brown", "van Pelt", "Patty"),
+                 birthday=c("10-31-06", "2/4/2007", "June 1, 2005"))
+
+df
+
+```  
+
+```{r}
+
+df |>
+  mutate(birthday_clean=mdy(birthday))
+
+```  
+
+```{r}
+
+df |>
+  mutate(birthday_clean=mdy(birthday)) |>
+  mutate(month=month(birthday_clean)) |>
+  mutate(year=year(birthday_clean)) |>
+  mutate(week=week(birthday_clean))
+
+```  
