@@ -20,103 +20,103 @@ library(dplyr)
 
 glimpse(df)
 
-```  
+```
 
 ```{r}
 
 range(1, 4, 6, 22, 2002)
 
-```  
+```
 
 ```{r}
 
 range(df$incidentBeginDate)
 
 
-```  
+```
 
 ```{r}
 
 table(df$state)
 
 
-```  
+```
 
 ```{r}
 counted <- count(df, state)
 
 counted
-```  
+```
 
 ```{r}
 counted <- count(df, state, name="disasters")
 
 counted
-```  
+```
 
 ```{r}
 arrange(counted, disasters)
 
-``` 
+```
 
 ```{r}
 arrange(counted, desc(disasters))
-```  
+```
 
 ```{r}
 counted <- count(df, state, name="disasters")
 sorted_count <- arrange(counted, desc(disasters))
 
 sorted_count
-```  
+```
 
 ```{r}
 df |>
   count(state, name="disasters") |>
   arrange(desc(disasters))
-```  
+```
 
 ```{r}
 glimpse(df)
-```  
+```
 
 ```{r}
 df |>
   filter(incidentType=="Hurricane")
-```  
+```
 
 ```{r}
 df
-```  
+```
 
 ```{r}
 df |>
   filter(incidentType=="Hurricane" | incidentType == "Fire")
-```  
+```
 
 ```{r}
 disaster_list <- c("Flood", "Hail", "Typhoon")
 
 df |>
   filter(incidentType %in% disaster_list)
-```  
+```
 
 ```{r}
 colnames(df)
-```  
+```
 
 ```{r}
 df |>
   select(femaDeclarationString, state,
          declarationDate, incidentType)
-```  
+```
 
 ```{r}
 df |>
   arrange(desc(declarationDate)) |>
   filter(incidentType=="Flood") |>
   select(state, declarationDate, designatedArea)
-```  
+```
 
 ```{r}
 df |>
@@ -124,7 +124,7 @@ df |>
   filter(incidentType=="Flood") |>
   select(state, declarationDate, designatedArea) |>
   slice(1)
-```  
+```
 
 ```{r}
 df |>
@@ -132,7 +132,7 @@ df |>
   filter(incidentType=="Flood") |>
   select(state, declarationDate, designatedArea) |>
   slice(2)
-```  
+```
 
 ```{r}
 df |>
@@ -140,13 +140,13 @@ df |>
   filter(incidentType=="Flood") |>
   select(state, declarationDate, designatedArea) |>
   slice(1:5)
-```  
+```
 
 ```{r}
 df |>
   select(femaDeclarationString, state,
          declarationDate, incidentType)
-```  
+```
 
 ```{r}
 df |>
@@ -154,19 +154,19 @@ df |>
          declarationDate, incidentType) |>
   mutate(year=year(declarationDate))
 
-```  
+```
 
 ```{r}
 df |>
   summarize(disasters=n())
-```  
+```
 
 ```{r}
 df |>
   select(femaDeclarationString, state,
          declarationDate, incidentType) |>
   mutate(year=year(declarationDate))
-```  
+```
 
 ```{r}
 df |>
@@ -175,7 +175,7 @@ df |>
   mutate(year=year(declarationDate)) |>
   group_by(state) |>
   summarize(disasters=n())
-```  
+```
 
 ```{r}
 df |>
@@ -184,7 +184,7 @@ df |>
   mutate(year=year(declarationDate)) |>
   group_by(incidentType) |>
   summarize(disasters=n())
-```  
+```
 
 ```{r}
 df |>
@@ -193,7 +193,7 @@ df |>
   mutate(year=year(declarationDate)) |>
   group_by(state, incidentType) |>
   summarize(disasters=n())
-```  
+```
 
 ```{r}
 df |>
@@ -202,14 +202,14 @@ df |>
   mutate(year=year(declarationDate)) |>
   group_by(state, incidentType, year) |> #ROTATE
   summarize(disasters=n())
-```  
+```
 
 ```{r}
 df |>
   select(femaDeclarationString, state,
          declarationDate, incidentType) |>
   mutate(year=year(declarationDate))
-```  
+```
 
 ```{r}
 df |>
@@ -227,7 +227,7 @@ df |>
     TRUE ~ "2020+"
   ))
 
-```  
+```
 
 ```{r}
 df |>
@@ -247,7 +247,7 @@ df |>
   group_by(year_group) |>
   summarize(disasters=n())
 
-```  
+```
 
 ```{r}
 df |>
@@ -267,4 +267,4 @@ df |>
   group_by(year_group) |>
   summarize(disasters=n())
 
-```  
+```

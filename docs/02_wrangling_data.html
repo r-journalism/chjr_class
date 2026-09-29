@@ -10,7 +10,7 @@
 <link href="02_wrangling_data_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.5.57">
 
-  <meta name="author" content="Data Health Fellowship">
+  <meta name="author" content="American University Data Journalism">
   <title>Wrangling Data </title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -390,13 +390,13 @@
   <div class="reveal">
     <div class="slides">
 
-<section id="title-slide" data-background-image="slide_images/usc.jpg" data-background-opacity="number" data-background-size="contain" class="quarto-title-block center">
+<section id="title-slide" data-background-opacity="number" data-background-size="contain" class="quarto-title-block center">
   <h1 class="title">Wrangling Data<br><br><br></h1>
 
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
 <div class="quarto-title-author-name">
-Data Health Fellowship 
+American University Data Journalism 
 </div>
 </div>
 </div>
@@ -421,7 +421,7 @@ Data Health Fellowship
 </section>
 <section id="before-we-begin-update-your-code" class="slide level2">
 <h2>Before we begin, update your code!</h2>
-<pre><code>remotes::install_github("r-journalism/chjr_class", upgrade="always", quiet=TRUE)</code></pre>
+<pre><code>remotes::install_github("r-journalism/au-r_class", upgrade="always", quiet=TRUE)</code></pre>
 </section>
 <section id="importing-data" class="slide level2">
 <h2>Importing data</h2>
@@ -432,7 +432,7 @@ Data Health Fellowship
 <span id="cb2-4"><a href=""></a></span>
 <span id="cb2-5"><a href=""></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 68,485 × 28
+<pre><code># A tibble: 69,546 × 28
    femaDeclarationString disasterNumber state declarationType
    &lt;chr&gt;                          &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;          
  1 FM-5529-OR                      5529 OR    FM             
@@ -445,7 +445,7 @@ Data Health Fellowship
  8 DR-4251-AL                      4251 AL    DR             
  9 DR-4251-AL                      4251 AL    DR             
 10 FM-5516-OR                      5516 OR    FM             
-# ℹ 68,475 more rows
+# ℹ 69,536 more rows
 # ℹ 24 more variables: declarationDate &lt;dttm&gt;, fyDeclared &lt;dbl&gt;,
 #   incidentType &lt;chr&gt;, declarationTitle &lt;chr&gt;, ihProgramDeclared &lt;dbl&gt;,
 #   iaProgramDeclared &lt;dbl&gt;, paProgramDeclared &lt;dbl&gt;, hmProgramDeclared &lt;dbl&gt;,
@@ -467,7 +467,7 @@ Data Health Fellowship
 <span id="cb4-2"><a href=""></a></span>
 <span id="cb4-3"><a href=""></a><span class="fu">glimpse</span>(df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Rows: 68,485
+<pre><code>Rows: 69,546
 Columns: 28
 $ femaDeclarationString    &lt;chr&gt; "FM-5529-OR", "FM-5528-OR", "FM-5527-OR", "DR…
 $ disasterNumber           &lt;dbl&gt; 5529, 5528, 5527, 4312, 4251, 4251, 4251, 425…
@@ -514,7 +514,7 @@ $ id                       &lt;chr&gt; "09e3f81a-5e16-4b72-b317-1c64e0cfa59c", "
 <div class="fragment">
 <div class="cell">
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "1953-05-02 UTC" "2025-09-25 UTC"</code></pre>
+<pre><code>[1] "1953-05-02 UTC" "2026-01-23 UTC"</code></pre>
 </div>
 </div>
 </div>
@@ -526,13 +526,13 @@ $ id                       &lt;chr&gt; "09e3f81a-5e16-4b72-b317-1c64e0cfa59c", "
 <div class="cell-output cell-output-stdout">
 <pre><code>
   AK   AL   AR   AS   AZ   CA   CO   CT   DC   DE   FL   FM   GA   GU   HI   IA 
- 344 1742 1749   76  346 1686  667  266   23   53 2791   31 2653   22  110 1926 
+ 347 1742 1824   76  346 1686  667  266   23   53 2791   31 2765   22  110 1926 
   ID   IL   IN   KS   KY   LA   MA   MD   ME   MH   MI   MN   MO   MP   MS   MT 
- 370 1313 1489 1898 3235 2589  414  447 1065   53  819 1622 2829   76 1963  643 
+ 370 1313 1581 1910 3355 2653  414  471 1065   53  819 1623 2830   76 2046  646 
   NC   ND   NE   NH   NJ   NM   NV   NY   OH   OK   OR   PA   PR   PW   RI   SC 
-2329 1416 1569  320  627  543  289 1537 1292 2581  637 1252 2116    1  123 1140 
+2431 1423 1581  320  627  543  289 1537 1292 2582  637 1252 2116    1  123 1187 
   SD   TN   TX   UT   VA   VI   VT   WA   WI   WV   WY 
-1468 1848 5386  259 2621   87  405 1017  895 1281  136 </code></pre>
+1468 1943 5386  259 2756   87  405 1034  895 1336  136 </code></pre>
 </div>
 </div>
 </section>
@@ -546,9 +546,9 @@ $ id                       &lt;chr&gt; "09e3f81a-5e16-4b72-b317-1c64e0cfa59c", "
 <pre><code># A tibble: 59 × 2
    state     n
    &lt;chr&gt; &lt;int&gt;
- 1 AK      344
+ 1 AK      347
  2 AL     1742
- 3 AR     1749
+ 3 AR     1824
  4 AS       76
  5 AZ      346
  6 CA     1686
@@ -570,9 +570,9 @@ $ id                       &lt;chr&gt; "09e3f81a-5e16-4b72-b317-1c64e0cfa59c", "
 <pre><code># A tibble: 59 × 2
    state disasters
    &lt;chr&gt;     &lt;int&gt;
- 1 AK          344
+ 1 AK          347
  2 AL         1742
- 3 AR         1749
+ 3 AR         1824
  4 AS           76
  5 AZ          346
  6 CA         1686
@@ -623,14 +623,14 @@ $ id                       &lt;chr&gt; "09e3f81a-5e16-4b72-b317-1c64e0cfa59c", "
    state disasters
    &lt;chr&gt;     &lt;int&gt;
  1 TX         5386
- 2 KY         3235
- 3 MO         2829
+ 2 KY         3355
+ 3 MO         2830
  4 FL         2791
- 5 GA         2653
- 6 VA         2621
- 7 LA         2589
- 8 OK         2581
- 9 NC         2329
+ 5 GA         2765
+ 6 VA         2756
+ 7 LA         2653
+ 8 OK         2582
+ 9 NC         2431
 10 PR         2116
 # ℹ 49 more rows</code></pre>
 </div>
@@ -654,14 +654,14 @@ $ id                       &lt;chr&gt; "09e3f81a-5e16-4b72-b317-1c64e0cfa59c", "
    state disasters
    &lt;chr&gt;     &lt;int&gt;
  1 TX         5386
- 2 KY         3235
- 3 MO         2829
+ 2 KY         3355
+ 3 MO         2830
  4 FL         2791
- 5 GA         2653
- 6 VA         2621
- 7 LA         2589
- 8 OK         2581
- 9 NC         2329
+ 5 GA         2765
+ 6 VA         2756
+ 7 LA         2653
+ 8 OK         2582
+ 9 NC         2431
 10 PR         2116
 # ℹ 49 more rows</code></pre>
 </div>
@@ -678,14 +678,14 @@ $ id                       &lt;chr&gt; "09e3f81a-5e16-4b72-b317-1c64e0cfa59c", "
    state disasters
    &lt;chr&gt;     &lt;int&gt;
  1 TX         5386
- 2 KY         3235
- 3 MO         2829
+ 2 KY         3355
+ 3 MO         2830
  4 FL         2791
- 5 GA         2653
- 6 VA         2621
- 7 LA         2589
- 8 OK         2581
- 9 NC         2329
+ 5 GA         2765
+ 6 VA         2756
+ 7 LA         2653
+ 8 OK         2582
+ 9 NC         2431
 10 PR         2116
 # ℹ 49 more rows</code></pre>
 </div>
@@ -708,7 +708,7 @@ $ id                       &lt;chr&gt; "09e3f81a-5e16-4b72-b317-1c64e0cfa59c", "
 <h1>Your turn</h1>
 <p>Run this to go through the exercises</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href=""></a>https<span class="sc">:</span><span class="er">//</span>r<span class="sc">-</span>journalism.github.io<span class="sc">/</span>chjr<span class="sc">/</span>wrangling<span class="sc">/</span>explore_arrange.html</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href=""></a>https<span class="sc">:</span><span class="er">//</span>r<span class="sc">-</span>journalism.github.io<span class="sc">/</span>au<span class="sc">-</span>r<span class="sc">/</span>wrangling<span class="sc">/</span>explore_arrange.html</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Run through as many exercises as you can before time runs out.</p>
 </section>
@@ -732,7 +732,7 @@ $ id                       &lt;chr&gt; "09e3f81a-5e16-4b72-b317-1c64e0cfa59c", "
 <div class="cell">
 <div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href=""></a><span class="fu">glimpse</span>(df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Rows: 68,485
+<pre><code>Rows: 69,546
 Columns: 28
 $ femaDeclarationString    &lt;chr&gt; "FM-5529-OR", "FM-5528-OR", "FM-5527-OR", "DR…
 $ disasterNumber           &lt;dbl&gt; 5529, 5528, 5527, 4312, 4251, 4251, 4251, 425…
@@ -774,16 +774,16 @@ $ id                       &lt;chr&gt; "09e3f81a-5e16-4b72-b317-1c64e0cfa59c", "
 <pre><code># A tibble: 13,721 × 28
    femaDeclarationString disasterNumber state declarationType
    &lt;chr&gt;                          &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;          
- 1 DR-4345-LA                      4345 LA    DR             
- 2 DR-4345-LA                      4345 LA    DR             
- 3 DR-4345-LA                      4345 LA    DR             
- 4 DR-4345-LA                      4345 LA    DR             
- 5 DR-4345-LA                      4345 LA    DR             
- 6 DR-4345-LA                      4345 LA    DR             
- 7 DR-4345-LA                      4345 LA    DR             
- 8 DR-4345-LA                      4345 LA    DR             
- 9 DR-4345-LA                      4345 LA    DR             
-10 DR-4345-LA                      4345 LA    DR             
+ 1 DR-4798-TX                      4798 TX    DR             
+ 2 DR-4798-TX                      4798 TX    DR             
+ 3 DR-4798-TX                      4798 TX    DR             
+ 4 DR-4798-TX                      4798 TX    DR             
+ 5 DR-4798-TX                      4798 TX    DR             
+ 6 DR-4798-TX                      4798 TX    DR             
+ 7 DR-4798-TX                      4798 TX    DR             
+ 8 DR-4798-TX                      4798 TX    DR             
+ 9 DR-4798-TX                      4798 TX    DR             
+10 DR-4798-TX                      4798 TX    DR             
 # ℹ 13,711 more rows
 # ℹ 24 more variables: declarationDate &lt;dttm&gt;, fyDeclared &lt;dbl&gt;,
 #   incidentType &lt;chr&gt;, declarationTitle &lt;chr&gt;, ihProgramDeclared &lt;dbl&gt;,
@@ -812,7 +812,7 @@ $ id                       &lt;chr&gt; "09e3f81a-5e16-4b72-b317-1c64e0cfa59c", "
 <div class="cell">
 <div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href=""></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 68,485 × 28
+<pre><code># A tibble: 69,546 × 28
    femaDeclarationString disasterNumber state declarationType
    &lt;chr&gt;                          &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;          
  1 FM-5529-OR                      5529 OR    FM             
@@ -825,7 +825,7 @@ $ id                       &lt;chr&gt; "09e3f81a-5e16-4b72-b317-1c64e0cfa59c", "
  8 DR-4251-AL                      4251 AL    DR             
  9 DR-4251-AL                      4251 AL    DR             
 10 FM-5516-OR                      5516 OR    FM             
-# ℹ 68,475 more rows
+# ℹ 69,536 more rows
 # ℹ 24 more variables: declarationDate &lt;dttm&gt;, fyDeclared &lt;dbl&gt;,
 #   incidentType &lt;chr&gt;, declarationTitle &lt;chr&gt;, ihProgramDeclared &lt;dbl&gt;,
 #   iaProgramDeclared &lt;dbl&gt;, paProgramDeclared &lt;dbl&gt;, hmProgramDeclared &lt;dbl&gt;,
@@ -841,7 +841,7 @@ $ id                       &lt;chr&gt; "09e3f81a-5e16-4b72-b317-1c64e0cfa59c", "
 <div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href=""></a>df <span class="sc">|&gt;</span> </span>
 <span id="cb30-2"><a href=""></a>  <span class="fu">filter</span>(incidentType<span class="sc">==</span><span class="st">"Hurricane"</span> <span class="sc">|</span> incidentType <span class="sc">==</span> <span class="st">"Fire"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 17,564 × 28
+<pre><code># A tibble: 17,565 × 28
    femaDeclarationString disasterNumber state declarationType
    &lt;chr&gt;                          &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;          
  1 FM-5529-OR                      5529 OR    FM             
@@ -854,7 +854,7 @@ $ id                       &lt;chr&gt; "09e3f81a-5e16-4b72-b317-1c64e0cfa59c", "
  8 FM-5514-OR                      5514 OR    FM             
  9 FM-5513-OR                      5513 OR    FM             
 10 FM-5512-OR                      5512 OR    FM             
-# ℹ 17,554 more rows
+# ℹ 17,555 more rows
 # ℹ 24 more variables: declarationDate &lt;dttm&gt;, fyDeclared &lt;dbl&gt;,
 #   incidentType &lt;chr&gt;, declarationTitle &lt;chr&gt;, ihProgramDeclared &lt;dbl&gt;,
 #   iaProgramDeclared &lt;dbl&gt;, paProgramDeclared &lt;dbl&gt;, hmProgramDeclared &lt;dbl&gt;,
@@ -872,7 +872,7 @@ $ id                       &lt;chr&gt; "09e3f81a-5e16-4b72-b317-1c64e0cfa59c", "
 <span id="cb32-3"><a href=""></a>df <span class="sc">|&gt;</span> </span>
 <span id="cb32-4"><a href=""></a>  <span class="fu">filter</span>(incidentType <span class="sc">%in%</span> disaster_list)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 11,334 × 28
+<pre><code># A tibble: 11,357 × 28
    femaDeclarationString disasterNumber state declarationType
    &lt;chr&gt;                          &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;          
  1 DR-388-AL                        388 AL    DR             
@@ -885,7 +885,7 @@ $ id                       &lt;chr&gt; "09e3f81a-5e16-4b72-b317-1c64e0cfa59c", "
  8 DR-4781-TX                      4781 TX    DR             
  9 DR-4781-TX                      4781 TX    DR             
 10 DR-4781-TX                      4781 TX    DR             
-# ℹ 11,324 more rows
+# ℹ 11,347 more rows
 # ℹ 24 more variables: declarationDate &lt;dttm&gt;, fyDeclared &lt;dbl&gt;,
 #   incidentType &lt;chr&gt;, declarationTitle &lt;chr&gt;, ihProgramDeclared &lt;dbl&gt;,
 #   iaProgramDeclared &lt;dbl&gt;, paProgramDeclared &lt;dbl&gt;, hmProgramDeclared &lt;dbl&gt;,
@@ -928,7 +928,7 @@ $ id                       &lt;chr&gt; "09e3f81a-5e16-4b72-b317-1c64e0cfa59c", "
 <span id="cb36-2"><a href=""></a>  <span class="fu">select</span>(femaDeclarationString, state, </span>
 <span id="cb36-3"><a href=""></a>         declarationDate, incidentType)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 68,485 × 4
+<pre><code># A tibble: 69,546 × 4
    femaDeclarationString state declarationDate     incidentType
    &lt;chr&gt;                 &lt;chr&gt; &lt;dttm&gt;              &lt;chr&gt;       
  1 FM-5529-OR            OR    2024-08-09 00:00:00 Fire        
@@ -941,7 +941,7 @@ $ id                       &lt;chr&gt; "09e3f81a-5e16-4b72-b317-1c64e0cfa59c", "
  8 DR-4251-AL            AL    2016-01-21 00:00:00 Severe Storm
  9 DR-4251-AL            AL    2016-01-21 00:00:00 Severe Storm
 10 FM-5516-OR            OR    2024-07-22 00:00:00 Fire        
-# ℹ 68,475 more rows</code></pre>
+# ℹ 69,536 more rows</code></pre>
 </div>
 </div>
 </section>
@@ -953,20 +953,20 @@ $ id                       &lt;chr&gt; "09e3f81a-5e16-4b72-b317-1c64e0cfa59c", "
 <span id="cb38-3"><a href=""></a>  <span class="fu">filter</span>(incidentType<span class="sc">==</span><span class="st">"Flood"</span>) <span class="sc">|&gt;</span> </span>
 <span id="cb38-4"><a href=""></a>  <span class="fu">select</span>(state, declarationDate, designatedArea)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 11,204 × 3
-   state declarationDate     designatedArea                             
-   &lt;chr&gt; &lt;dttm&gt;              &lt;chr&gt;                                      
- 1 MT    2025-09-11 00:00:00 Crow Indian Reservation                    
- 2 WI    2025-09-11 00:00:00 Milwaukee (County)                         
- 3 WI    2025-09-11 00:00:00 Washington (County)                        
- 4 WI    2025-09-11 00:00:00 Waukesha (County)                          
- 5 SD    2025-09-11 00:00:00 Lake Traverse (Sisseton) Indian Reservation
- 6 IN    2025-07-22 00:00:00 Bartholomew (County)                       
- 7 IN    2025-07-22 00:00:00 Brown (County)                             
- 8 IN    2025-07-22 00:00:00 Clark (County)                             
- 9 IN    2025-07-22 00:00:00 Crawford (County)                          
-10 IN    2025-07-22 00:00:00 Decatur (County)                           
-# ℹ 11,194 more rows</code></pre>
+<pre><code># A tibble: 11,227 × 3
+   state declarationDate     designatedArea              
+   &lt;chr&gt; &lt;dttm&gt;              &lt;chr&gt;                       
+ 1 MT    2025-12-19 00:00:00 Blackfeet Indian Reservation
+ 2 MT    2025-12-19 00:00:00 Lincoln (County)            
+ 3 MT    2025-12-19 00:00:00 Sanders (County)            
+ 4 WA    2025-12-12 00:00:00 Samish (TDSA)               
+ 5 WA    2025-12-12 00:00:00 Benton (County)             
+ 6 WA    2025-12-12 00:00:00 Chelan (County)             
+ 7 WA    2025-12-12 00:00:00 Clallam (County)            
+ 8 WA    2025-12-12 00:00:00 Grays Harbor (County)       
+ 9 WA    2025-12-12 00:00:00 Jefferson (County)          
+10 WA    2025-12-12 00:00:00 King (County)               
+# ℹ 11,217 more rows</code></pre>
 </div>
 </div>
 </section>
@@ -980,9 +980,9 @@ $ id                       &lt;chr&gt; "09e3f81a-5e16-4b72-b317-1c64e0cfa59c", "
 <span id="cb40-5"><a href=""></a>  <span class="fu">slice</span>(<span class="dv">1</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 1 × 3
-  state declarationDate     designatedArea         
-  &lt;chr&gt; &lt;dttm&gt;              &lt;chr&gt;                  
-1 MT    2025-09-11 00:00:00 Crow Indian Reservation</code></pre>
+  state declarationDate     designatedArea              
+  &lt;chr&gt; &lt;dttm&gt;              &lt;chr&gt;                       
+1 MT    2025-12-19 00:00:00 Blackfeet Indian Reservation</code></pre>
 </div>
 </div>
 </section>
@@ -996,9 +996,9 @@ $ id                       &lt;chr&gt; "09e3f81a-5e16-4b72-b317-1c64e0cfa59c", "
 <span id="cb42-5"><a href=""></a>  <span class="fu">slice</span>(<span class="dv">2</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 1 × 3
-  state declarationDate     designatedArea    
-  &lt;chr&gt; &lt;dttm&gt;              &lt;chr&gt;             
-1 WI    2025-09-11 00:00:00 Milwaukee (County)</code></pre>
+  state declarationDate     designatedArea  
+  &lt;chr&gt; &lt;dttm&gt;              &lt;chr&gt;           
+1 MT    2025-12-19 00:00:00 Lincoln (County)</code></pre>
 </div>
 </div>
 </section>
@@ -1012,13 +1012,13 @@ $ id                       &lt;chr&gt; "09e3f81a-5e16-4b72-b317-1c64e0cfa59c", "
 <span id="cb44-5"><a href=""></a>  <span class="fu">slice</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 5 × 3
-  state declarationDate     designatedArea                             
-  &lt;chr&gt; &lt;dttm&gt;              &lt;chr&gt;                                      
-1 MT    2025-09-11 00:00:00 Crow Indian Reservation                    
-2 WI    2025-09-11 00:00:00 Milwaukee (County)                         
-3 WI    2025-09-11 00:00:00 Washington (County)                        
-4 WI    2025-09-11 00:00:00 Waukesha (County)                          
-5 SD    2025-09-11 00:00:00 Lake Traverse (Sisseton) Indian Reservation</code></pre>
+  state declarationDate     designatedArea              
+  &lt;chr&gt; &lt;dttm&gt;              &lt;chr&gt;                       
+1 MT    2025-12-19 00:00:00 Blackfeet Indian Reservation
+2 MT    2025-12-19 00:00:00 Lincoln (County)            
+3 MT    2025-12-19 00:00:00 Sanders (County)            
+4 WA    2025-12-12 00:00:00 Samish (TDSA)               
+5 WA    2025-12-12 00:00:00 Benton (County)             </code></pre>
 </div>
 </div>
 </section>
@@ -1039,7 +1039,7 @@ $ id                       &lt;chr&gt; "09e3f81a-5e16-4b72-b317-1c64e0cfa59c", "
 <h1>Your turn</h1>
 <p>Run this to go through the exercises.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href=""></a>https<span class="sc">:</span><span class="er">//</span>r<span class="sc">-</span>journalism.github.io<span class="sc">/</span>chjr<span class="sc">/</span>wrangling<span class="sc">/</span>filter_select.html</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href=""></a>https<span class="sc">:</span><span class="er">//</span>r<span class="sc">-</span>journalism.github.io<span class="sc">/</span>au<span class="sc">-</span>r<span class="sc">/</span>wrangling<span class="sc">/</span>filter_select.html</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Run through as many exercises as you can in the time we set aside.</p>
 </section>
@@ -1056,7 +1056,7 @@ $ id                       &lt;chr&gt; "09e3f81a-5e16-4b72-b317-1c64e0cfa59c", "
 </div>
 <div class="cell">
 <div class="cell-output cell-output-stdout">
-<pre><code>Rows: 68,485
+<pre><code>Rows: 69,546
 Columns: 28
 $ femaDeclarationString    &lt;chr&gt; "FM-5529-OR", "FM-5528-OR", "FM-5527-OR", "DR…
 $ disasterNumber           &lt;dbl&gt; 5529, 5528, 5527, 4312, 4251, 4251, 4251, 425…
@@ -1098,7 +1098,7 @@ $ id                       &lt;chr&gt; "09e3f81a-5e16-4b72-b317-1c64e0cfa59c", "
 <div class="cell">
 <div class="sourceCode cell-code" id="cb49"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href=""></a>df </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 68,485 × 28
+<pre><code># A tibble: 69,546 × 28
    femaDeclarationString disasterNumber state declarationType
    &lt;chr&gt;                          &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;          
  1 FM-5529-OR                      5529 OR    FM             
@@ -1111,7 +1111,7 @@ $ id                       &lt;chr&gt; "09e3f81a-5e16-4b72-b317-1c64e0cfa59c", "
  8 DR-4251-AL                      4251 AL    DR             
  9 DR-4251-AL                      4251 AL    DR             
 10 FM-5516-OR                      5516 OR    FM             
-# ℹ 68,475 more rows
+# ℹ 69,536 more rows
 # ℹ 24 more variables: declarationDate &lt;dttm&gt;, fyDeclared &lt;dbl&gt;,
 #   incidentType &lt;chr&gt;, declarationTitle &lt;chr&gt;, ihProgramDeclared &lt;dbl&gt;,
 #   iaProgramDeclared &lt;dbl&gt;, paProgramDeclared &lt;dbl&gt;, hmProgramDeclared &lt;dbl&gt;,
@@ -1128,7 +1128,7 @@ $ id                       &lt;chr&gt; "09e3f81a-5e16-4b72-b317-1c64e0cfa59c", "
 <span id="cb51-2"><a href=""></a>  <span class="fu">select</span>(femaDeclarationString, state, </span>
 <span id="cb51-3"><a href=""></a>         declarationDate, incidentType) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 68,485 × 4
+<pre><code># A tibble: 69,546 × 4
    femaDeclarationString state declarationDate     incidentType
    &lt;chr&gt;                 &lt;chr&gt; &lt;dttm&gt;              &lt;chr&gt;       
  1 FM-5529-OR            OR    2024-08-09 00:00:00 Fire        
@@ -1141,7 +1141,7 @@ $ id                       &lt;chr&gt; "09e3f81a-5e16-4b72-b317-1c64e0cfa59c", "
  8 DR-4251-AL            AL    2016-01-21 00:00:00 Severe Storm
  9 DR-4251-AL            AL    2016-01-21 00:00:00 Severe Storm
 10 FM-5516-OR            OR    2024-07-22 00:00:00 Fire        
-# ℹ 68,475 more rows</code></pre>
+# ℹ 69,536 more rows</code></pre>
 </div>
 </div>
 </section>
@@ -1153,7 +1153,7 @@ $ id                       &lt;chr&gt; "09e3f81a-5e16-4b72-b317-1c64e0cfa59c", "
 <span id="cb53-3"><a href=""></a>         declarationDate, incidentType) <span class="sc">|&gt;</span> </span>
 <span id="cb53-4"><a href=""></a>  <span class="fu">mutate</span>(<span class="at">year=</span><span class="fu">year</span>(declarationDate))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 68,485 × 5
+<pre><code># A tibble: 69,546 × 5
    femaDeclarationString state declarationDate     incidentType  year
    &lt;chr&gt;                 &lt;chr&gt; &lt;dttm&gt;              &lt;chr&gt;        &lt;dbl&gt;
  1 FM-5529-OR            OR    2024-08-09 00:00:00 Fire          2024
@@ -1166,7 +1166,7 @@ $ id                       &lt;chr&gt; "09e3f81a-5e16-4b72-b317-1c64e0cfa59c", "
  8 DR-4251-AL            AL    2016-01-21 00:00:00 Severe Storm  2016
  9 DR-4251-AL            AL    2016-01-21 00:00:00 Severe Storm  2016
 10 FM-5516-OR            OR    2024-07-22 00:00:00 Fire          2024
-# ℹ 68,475 more rows</code></pre>
+# ℹ 69,536 more rows</code></pre>
 </div>
 </div>
 </section>
@@ -1175,7 +1175,7 @@ $ id                       &lt;chr&gt; "09e3f81a-5e16-4b72-b317-1c64e0cfa59c", "
 <div class="cell">
 <div class="sourceCode cell-code" id="cb55"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb55-1"><a href=""></a>df </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 68,485 × 28
+<pre><code># A tibble: 69,546 × 28
    femaDeclarationString disasterNumber state declarationType
    &lt;chr&gt;                          &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;          
  1 FM-5529-OR                      5529 OR    FM             
@@ -1188,7 +1188,7 @@ $ id                       &lt;chr&gt; "09e3f81a-5e16-4b72-b317-1c64e0cfa59c", "
  8 DR-4251-AL                      4251 AL    DR             
  9 DR-4251-AL                      4251 AL    DR             
 10 FM-5516-OR                      5516 OR    FM             
-# ℹ 68,475 more rows
+# ℹ 69,536 more rows
 # ℹ 24 more variables: declarationDate &lt;dttm&gt;, fyDeclared &lt;dbl&gt;,
 #   incidentType &lt;chr&gt;, declarationTitle &lt;chr&gt;, ihProgramDeclared &lt;dbl&gt;,
 #   iaProgramDeclared &lt;dbl&gt;, paProgramDeclared &lt;dbl&gt;, hmProgramDeclared &lt;dbl&gt;,
@@ -1207,7 +1207,7 @@ $ id                       &lt;chr&gt; "09e3f81a-5e16-4b72-b317-1c64e0cfa59c", "
 <pre><code># A tibble: 1 × 1
   disasters
       &lt;int&gt;
-1     68485</code></pre>
+1     69546</code></pre>
 </div>
 </div>
 </section>
@@ -1219,7 +1219,7 @@ $ id                       &lt;chr&gt; "09e3f81a-5e16-4b72-b317-1c64e0cfa59c", "
 <span id="cb59-3"><a href=""></a>         declarationDate, incidentType) <span class="sc">|&gt;</span> </span>
 <span id="cb59-4"><a href=""></a>  <span class="fu">mutate</span>(<span class="at">year=</span><span class="fu">year</span>(declarationDate))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 68,485 × 5
+<pre><code># A tibble: 69,546 × 5
    femaDeclarationString state declarationDate     incidentType  year
    &lt;chr&gt;                 &lt;chr&gt; &lt;dttm&gt;              &lt;chr&gt;        &lt;dbl&gt;
  1 FM-5529-OR            OR    2024-08-09 00:00:00 Fire          2024
@@ -1232,7 +1232,7 @@ $ id                       &lt;chr&gt; "09e3f81a-5e16-4b72-b317-1c64e0cfa59c", "
  8 DR-4251-AL            AL    2016-01-21 00:00:00 Severe Storm  2016
  9 DR-4251-AL            AL    2016-01-21 00:00:00 Severe Storm  2016
 10 FM-5516-OR            OR    2024-07-22 00:00:00 Fire          2024
-# ℹ 68,475 more rows</code></pre>
+# ℹ 69,536 more rows</code></pre>
 </div>
 </div>
 </section>
@@ -1249,9 +1249,9 @@ $ id                       &lt;chr&gt; "09e3f81a-5e16-4b72-b317-1c64e0cfa59c", "
 <pre><code># A tibble: 59 × 2
    state disasters
    &lt;chr&gt;     &lt;int&gt;
- 1 AK          344
+ 1 AK          347
  2 AL         1742
- 3 AR         1749
+ 3 AR         1824
  4 AS           76
  5 AZ          346
  6 CA         1686
@@ -1282,9 +1282,9 @@ $ id                       &lt;chr&gt; "09e3f81a-5e16-4b72-b317-1c64e0cfa59c", "
  4 Dam/Levee Break        13
  5 Drought              1292
  6 Earthquake            228
- 7 Fire                 3843
+ 7 Fire                 3844
  8 Fishing Losses         42
- 9 Flood               11204
+ 9 Flood               11227
 10 Freezing              301
 # ℹ 17 more rows</code></pre>
 </div>
@@ -1300,7 +1300,7 @@ $ id                       &lt;chr&gt; "09e3f81a-5e16-4b72-b317-1c64e0cfa59c", "
 <span id="cb65-5"><a href=""></a>  <span class="fu">group_by</span>(state, incidentType) <span class="sc">|&gt;</span> </span>
 <span id="cb65-6"><a href=""></a>  <span class="fu">summarize</span>(<span class="at">disasters=</span><span class="fu">n</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 526 × 3
+<pre><code># A tibble: 529 × 3
 # Groups:   state [59]
    state incidentType  disasters
    &lt;chr&gt; &lt;chr&gt;             &lt;int&gt;
@@ -1308,13 +1308,13 @@ $ id                       &lt;chr&gt; "09e3f81a-5e16-4b72-b317-1c64e0cfa59c", "
  2 AK    Coastal Storm         2
  3 AK    Earthquake           13
  4 AK    Fire                 35
- 5 AK    Flood                61
+ 5 AK    Flood                64
  6 AK    Freezing             14
  7 AK    Mud/Landslide        12
  8 AK    Other                 4
  9 AK    Severe Storm         78
 10 AK    Snowstorm             4
-# ℹ 516 more rows</code></pre>
+# ℹ 519 more rows</code></pre>
 </div>
 </div>
 </section>
@@ -1328,8 +1328,8 @@ $ id                       &lt;chr&gt; "09e3f81a-5e16-4b72-b317-1c64e0cfa59c", "
 <span id="cb67-5"><a href=""></a>  <span class="fu">group_by</span>(state, incidentType, year) <span class="sc">|&gt;</span> <span class="co">#ROTATE</span></span>
 <span id="cb67-6"><a href=""></a>  <span class="fu">summarize</span>(<span class="at">disasters=</span><span class="fu">n</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 3,004 × 4
-# Groups:   state, incidentType [526]
+<pre><code># A tibble: 3,020 × 4
+# Groups:   state, incidentType [529]
    state incidentType   year disasters
    &lt;chr&gt; &lt;chr&gt;         &lt;dbl&gt;     &lt;int&gt;
  1 AK    Biological     2020       121
@@ -1342,7 +1342,7 @@ $ id                       &lt;chr&gt; "09e3f81a-5e16-4b72-b317-1c64e0cfa59c", "
  8 AK    Fire           1970         1
  9 AK    Fire           1971         2
 10 AK    Fire           1973         1
-# ℹ 2,994 more rows</code></pre>
+# ℹ 3,010 more rows</code></pre>
 </div>
 </div>
 </section>
@@ -1357,7 +1357,7 @@ $ id                       &lt;chr&gt; "09e3f81a-5e16-4b72-b317-1c64e0cfa59c", "
 <span id="cb69-3"><a href=""></a>         declarationDate, incidentType) <span class="sc">|&gt;</span> </span>
 <span id="cb69-4"><a href=""></a>  <span class="fu">mutate</span>(<span class="at">year=</span><span class="fu">year</span>(declarationDate))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 68,485 × 5
+<pre><code># A tibble: 69,546 × 5
    femaDeclarationString state declarationDate     incidentType  year
    &lt;chr&gt;                 &lt;chr&gt; &lt;dttm&gt;              &lt;chr&gt;        &lt;dbl&gt;
  1 FM-5529-OR            OR    2024-08-09 00:00:00 Fire          2024
@@ -1370,7 +1370,7 @@ $ id                       &lt;chr&gt; "09e3f81a-5e16-4b72-b317-1c64e0cfa59c", "
  8 DR-4251-AL            AL    2016-01-21 00:00:00 Severe Storm  2016
  9 DR-4251-AL            AL    2016-01-21 00:00:00 Severe Storm  2016
 10 FM-5516-OR            OR    2024-07-22 00:00:00 Fire          2024
-# ℹ 68,475 more rows</code></pre>
+# ℹ 69,536 more rows</code></pre>
 </div>
 </div>
 </section>
@@ -1392,7 +1392,7 @@ $ id                       &lt;chr&gt; "09e3f81a-5e16-4b72-b317-1c64e0cfa59c", "
 <span id="cb71-13"><a href=""></a>    <span class="cn">TRUE</span> <span class="sc">~</span> <span class="st">"2020+"</span></span>
 <span id="cb71-14"><a href=""></a>  ))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 68,485 × 6
+<pre><code># A tibble: 69,546 × 6
    femaDeclarationString state declarationDate     incidentType  year year_group
    &lt;chr&gt;                 &lt;chr&gt; &lt;dttm&gt;              &lt;chr&gt;        &lt;dbl&gt; &lt;chr&gt;     
  1 FM-5529-OR            OR    2024-08-09 00:00:00 Fire          2024 2020+     
@@ -1405,7 +1405,7 @@ $ id                       &lt;chr&gt; "09e3f81a-5e16-4b72-b317-1c64e0cfa59c", "
  8 DR-4251-AL            AL    2016-01-21 00:00:00 Severe Storm  2016 2010-2019 
  9 DR-4251-AL            AL    2016-01-21 00:00:00 Severe Storm  2016 2010-2019 
 10 FM-5516-OR            OR    2024-07-22 00:00:00 Fire          2024 2020+     
-# ℹ 68,475 more rows</code></pre>
+# ℹ 69,536 more rows</code></pre>
 </div>
 </div>
 </section>
@@ -1439,7 +1439,7 @@ $ id                       &lt;chr&gt; "09e3f81a-5e16-4b72-b317-1c64e0cfa59c", "
 5 1990-1999        8806
 6 2000-2009       16348
 7 2010-2019       12086
-8 2020+           23233</code></pre>
+8 2020+           24294</code></pre>
 </div>
 </div>
 </section>
@@ -1457,7 +1457,7 @@ $ id                       &lt;chr&gt; "09e3f81a-5e16-4b72-b317-1c64e0cfa59c", "
 5 1990-1999        8806
 6 2000-2009       16348
 7 2010-2019       12086
-8 2020+           23233</code></pre>
+8 2020+           24294</code></pre>
 </div>
 </div>
 </section>
@@ -1477,7 +1477,7 @@ $ id                       &lt;chr&gt; "09e3f81a-5e16-4b72-b317-1c64e0cfa59c", "
 <h1>Your turn</h1>
 <p>Run this to go through the exercises. Get as far as you can.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb76"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb76-1"><a href=""></a>https<span class="sc">:</span><span class="er">//</span>r<span class="sc">-</span>journalism.github.io<span class="sc">/</span>chjr<span class="sc">/</span>wrangling<span class="sc">/</span>mutate_summarize.html</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb76"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb76-1"><a href=""></a>https<span class="sc">:</span><span class="er">//</span>r<span class="sc">-</span>journalism.github.io<span class="sc">/</span>au<span class="sc">-</span>r<span class="sc">/</span>wrangling<span class="sc">/</span>mutate_summarize.html</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="quarto-auto-generated-content">
 <div class="footer footer-default">

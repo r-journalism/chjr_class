@@ -1,6 +1,6 @@
 ---
 title: "Joining and Tidying<br /><br /><br />"
-author: "Data Health Fellowship"
+author: "American University Data Journalism"
 format:
   revealjs: 
     theme: beige
@@ -145,7 +145,7 @@ class: inverse, center, middle
 ### Your turn
 
 ```
-https://r-journalism.github.io/chjr/visualizing/viz.html
+https://r-journalism.github.io/au-r/visualizing/viz.html
 ```
 
 ---
@@ -257,7 +257,7 @@ class: inverse, center, middle
 ### Your turn
 
 ```
-https://r-journalism.github.io/chjr/visualizing/viz.html
+https://r-journalism.github.io/au-r/visualizing/viz.html
 ```
 
 Go through Exercise 2!
@@ -294,7 +294,7 @@ class: inverse, center, middle
 ### Your turn
 
 ```
-https://r-journalism.github.io/chjr/visualizing/viz.html
+https://r-journalism.github.io/au-r/visualizing/viz.html
 ```
 
 Go through the two exercises in the **Facets** section.
@@ -333,7 +333,7 @@ class: inverse, center, middle
 ### Your turn
 
 ```
-https://r-journalism.github.io/chjr/visualizing/viz.html
+https://r-journalism.github.io/au-r/visualizing/viz.html
 ```
 
 Go through the **Labels** section.
@@ -373,7 +373,7 @@ disney %>%
 ### Your turn
 
 ```
-https://r-journalism.github.io/chjr/visualizing/viz.html
+https://r-journalism.github.io/au-r/visualizing/viz.html
 ```
 
 Go through the **Themes** section.
@@ -385,7 +385,7 @@ knitr::include_graphics("slide_images/ggplot2_masterpiece.png")
 ### Your turn
 
 ```
-https://r-journalism.github.io/chjr/visualizing/viz.html
+https://r-journalism.github.io/au-r/visualizing/viz.html
 ```
 
 

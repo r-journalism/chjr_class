@@ -1,11 +1,10 @@
 ---
 title: "Wrangling Data<br /><br /><br />"
-author: "Data Health Fellowship"
+author: "American University Data Journalism"
 format:
   revealjs: 
     theme: beige
 title-slide-attributes:
-    data-background-image: "slide_images/usc.jpg"
     data-background-size: contain
     data-background-opacity: "number"
 ---
@@ -28,7 +27,7 @@ title-slide-attributes:
 
 ## Before we begin, update your code!
 ```
-remotes::install_github("r-journalism/chjr_class", upgrade="always", quiet=TRUE)
+remotes::install_github("r-journalism/au-r_class", upgrade="always", quiet=TRUE)
 ```
 
 ## Importing data
@@ -195,7 +194,7 @@ Run this to go through the exercises
 ```{r}
 #| eval: FALSE
 #| echo: TRUE
-https://r-journalism.github.io/chjr/wrangling/explore_arrange.html
+https://r-journalism.github.io/au-r/wrangling/explore_arrange.html
 ```
 
 Run through as many exercises as you can before time runs out.
@@ -376,7 +375,7 @@ Run this to go through the exercises.
 ```{r}
 #| eval: FALSE
 #| echo: TRUE
-https://r-journalism.github.io/chjr/wrangling/filter_select.html
+https://r-journalism.github.io/au-r/wrangling/filter_select.html
 ```
 
 Run through as many exercises as you can in the time we set aside.
@@ -634,6 +633,6 @@ Run this to go through the exercises. Get as far as you can.
 ```{r}
 #| eval: FALSE
 #| echo: TRUE
-https://r-journalism.github.io/chjr/wrangling/mutate_summarize.html
+https://r-journalism.github.io/au-r/wrangling/mutate_summarize.html
 ```
 

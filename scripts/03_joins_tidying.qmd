@@ -4,7 +4,6 @@ format: html
 editor: visual
 ---
 
-
 ```{r}
 x <- data.frame(id=c(1,2,3), x=c("x1", "x2", "x3"))
 
@@ -15,14 +14,14 @@ x
 y <- data.frame(id=c(1,2,4), y=c("y1", "y2", "y4"))
 
 y
-```  
+```
 
 ```{r}
 library(dplyr)
 
 left_join(x, y)
 
-```  
+```
 
 ```{r}
 
@@ -30,7 +29,7 @@ x <- data.frame(id=c(1,2,3), x=c("x1", "x2", "x3"))
 
 x
 
-``` 
+```
 
 ```{r}
 
@@ -38,13 +37,13 @@ y <- data.frame(new_id=c(1,2,4), y=c("y1", "y2", "y4"))
 
 y
 
-```  
+```
 
 ```{r}
 
 left_join(x, y, by=c("id"="new_id"))
 
-```  
+```
 
 ```{r}
 
@@ -58,13 +57,13 @@ y <- data.frame(id=c(1,2,4,2),
 
 y
 
-```  
+```
 
 ```{r}
 
 left_join(x, y)
 
-```  
+```
 
 ```{r}
 
@@ -73,28 +72,28 @@ library(stringr)
 
 test_text <- "tHiS iS A rANsOM noTE!"
 
-```  
+```
 
 ```{r}
 
 str_to_upper(test_text)
 
 
-```  
+```
 
 ```{r}
 
 str_to_lower(test_text)
 
 
-```  
+```
 
 ```{r}
 
 str_to_title(test_text)
 
 
-```  
+```
 
 ```{r}
 
@@ -102,38 +101,38 @@ test_text <- "  trim both   "
 
 test_text
 
-```  
+```
 
 ```{r}
 
 str_trim(test_text, side="both")
 
-```  
+```
 
 ```{r}
 
 str_trim(test_text, side="left")
 
-```  
+```
 
 ```{r}
 
 str_trim(test_text, side="right")
 
 
-```  
+```
 
 ```{r}
 
 messy_text <- "  sometimes  you get   this "
 
 
-```  
+```
 
 ```{r}
 str_squish(messy_text)
 
-```  
+```
 
 ```{r}
 
@@ -145,32 +144,32 @@ text_a
 
 text_b
 
-```  
+```
 
 ```{r}
 
 str_c(text_a, text_b)
 
-```  
+```
 
 ```{r}
 
 str_c(text_a, text_b, sep="-")
 
-```  
+```
 
 ```{r}
 
 str_c(text_a, text_b, sep=" and a ")
 
 
-```  
+```
 
 ```{r}
 str_c(text_a, " and a ", text_b)
 
 
-```  
+```
 
 ```{r}
 
@@ -178,13 +177,13 @@ test_text <- "Hello world"
 
 test_text
 
-```  
+```
 
 ```{r}
 
 str_sub(test_text, start = 6)
 
-```  
+```
 
 ```{r}
 
@@ -193,7 +192,7 @@ str_sub(test_text, end = 5) <- "Howdy"
 
 test_text
 
-```  
+```
 
 ```{r}
 
@@ -203,7 +202,7 @@ cn
 
 str_replace(cn, " County, .*", "")
 
-```  
+```
 
 ```{r}
 
@@ -213,12 +212,12 @@ messy_numbers <- c("$5.00", "9,343,200", "6.0%")
 
 messy_numbers
 
-```  
+```
 
 ```{r}
 parse_number(messy_numbers)
 
-```  
+```
 
 ```{r}
 
@@ -227,7 +226,7 @@ df <- data.frame(id=c(1,2), x=c("a", "b"),
 
 df
 
-```  
+```
 
 ```{r}
 
@@ -239,7 +238,7 @@ df |>
                names_to="key",
                values_to="val")
 
-```  
+```
 
 ```{r}
 
@@ -249,7 +248,7 @@ df |>
                values_to="val")
 
 
-```  
+```
 
 ```{r}
 
@@ -258,13 +257,13 @@ df <- data.frame(state=c("TX", "NY", "FL"),
                  fish=c(6,30,20),
                  birds=c(99,3,64))
 
-```  
+```
 
 ```{r}
 
 df
 
-```  
+```
 
 ```{r}
 
@@ -273,13 +272,13 @@ df |>
                names_to="animals",
                values_to="total")
 
-```  
+```
 
 ```{r}
 
 df
 
-```  
+```
 
 ```{r}
 
@@ -288,7 +287,7 @@ df |>
                names_to="animals",
                values_to="totals")
 
-```  
+```
 
 ```{r}
 
@@ -297,13 +296,13 @@ df <- data.frame(state=c("TX", "NY", "FL"),
                  fish=c(6,30,20),
                  birds=c(99,3,64))
 
-```  
+```
 
 ```{r}
 
 df
 
-```  
+```
 
 ```{r}
 
@@ -315,7 +314,7 @@ df |>
   mutate(percent=
            round(total/sum(total)*100,1))
 
-```  
+```
 
 ```{r}
 
@@ -327,13 +326,13 @@ df_long <- df |>
   mutate(percent=
            round(total/sum(total)*100,1))
 
-```  
+```
 
 ```{r}
 
 df_long
 
-```  
+```
 
 ```{r}
 
@@ -341,7 +340,7 @@ df_long |>
   pivot_wider(names_from="animals",
               values_from="percent")
 
-```  
+```
 
 ```{r}
 
@@ -352,7 +351,7 @@ df_long |>
   mutate(birds_fish_diff=
            birds-fish)
 
-```  
+```
 
 ```{r}
 
@@ -364,20 +363,20 @@ df_long <- df |>
   mutate(percent=
            round(total/sum(total)*100,1))
 
-```  
+```
 
 ```{r}
 
 df_long
 
-```  
+```
 
 ```{r}
 df_long |>
   pivot_wider(names_from="animals",
               values_from=c("total", "percent"))
 
-```  
+```
 
 ```{r}
 
@@ -389,14 +388,14 @@ df <- data.frame(First=c("Charlie", "Lucy", "Peppermint"),
 
 df
 
-```  
+```
 
 ```{r}
 
 df |>
   mutate(birthday_clean=mdy(birthday))
 
-```  
+```
 
 ```{r}
 
@@ -406,4 +405,4 @@ df |>
   mutate(year=year(birthday_clean)) |>
   mutate(week=week(birthday_clean))
 
-```  
+```

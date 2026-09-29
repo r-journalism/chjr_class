@@ -1,11 +1,10 @@
 ---
 title: "Joining and Tidying<br /><br /><br />"
-author: "Data Health Fellowship"
+author: "American University Data Journalism"
 format:
   revealjs: 
     theme: beige
 title-slide-attributes:
-    data-background-image: "slide_images/usc.jpg"
     data-background-size: contain
     data-background-opacity: "number"
 ---
@@ -340,7 +339,7 @@ Run this to go through the exercises
 ```{r}
 #| eval: FALSE
 #| echo: TRUE
-https://r-journalism.github.io/chjr/tidying/joining.html
+https://r-journalism.github.io/au-r/tidying/joining.html
 ```
 
 Get as far as you can in the time we have! 
@@ -625,7 +624,7 @@ Run this to go through the exercises
 ```{r}
 #| eval: FALSE
 #| echo: TRUE
-https://r-journalism.github.io/chjr/tidying/math_pivots.html
+https://r-journalism.github.io/au-r/tidying/math_pivots.html
 ```
 
 Get as far as you can!
